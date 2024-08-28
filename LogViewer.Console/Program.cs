@@ -15,14 +15,26 @@ foreach (Match match in matches)
 {
     var jsonObject = JsonNode.Parse(match.Value)?.AsObject();
 
+    if (jsonObject is null) continue;
+
+    var flattenedObject = new JsonObject();
+
     foreach (var property in jsonObject)
     {
         if (property.Value is JsonObject nestedObject)
         {
+            foreach (var nestedProp in nestedObject)
+            {
+                flattenedObject.Add(nestedProp.Key, nestedProp.Value?.DeepClone());
+            }
+        }
+        else
+        {
+            flattenedObject.Add(property.Key, property.Value?.DeepClone());
         }
     }
 
-    jsonObjects.Add(jsonObject);
+    jsonObjects.Add(flattenedObject);
 }
 
-var b = 02;
+var b = 20;
