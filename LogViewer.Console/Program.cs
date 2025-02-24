@@ -1,40 +1,38 @@
 ﻿using System.Text.RegularExpressions;
-using System.Text.Json.Nodes;
+using System.Text.Json;
 
-var path = @"D:\project\LogViewer\tart-logs-app_20240821.log";
+var path = @"D:\Logs\logs.log";
 var pattern = @"\{(?:[^{}]|(?<Open>\{)|(?<-Open>\}))+(?(Open)(?!))\}";
 
 using var reader = new StreamReader(path);
-var logsString = await reader.ReadToEndAsync();
+var fileText = await reader.ReadToEndAsync();
 
-var jsonObjects = new List<JsonObject>();
+var parsedLogs = new List<List<KeyValuePair<string, string>>>();
 
-var matches = Regex.Matches(logsString, pattern);
+var matches = Regex.Matches(fileText, pattern);
 
 foreach (Match match in matches)
 {
-    var jsonObject = JsonNode.Parse(match.Value)?.AsObject();
+    var fields = new List<KeyValuePair<string, string>>();
 
-    if (jsonObject is null) continue;
+    var jsonElement = JsonSerializer.Deserialize<JsonElement>(match.Value);
 
-    var flattenedObject = new JsonObject();
+    FlattenJson(jsonElement, fields);
 
-    foreach (var property in jsonObject)
+    parsedLogs.Add(fields);
+}
+
+void FlattenJson(JsonElement element, List<KeyValuePair<string, string>> fields)
+{
+    foreach (var property in element.EnumerateObject())
     {
-        if (property.Value is JsonObject nestedObject)
+        if (property.Value.ValueKind is JsonValueKind.Object)
         {
-            foreach (var nestedProp in nestedObject)
-            {
-                flattenedObject.Add(nestedProp.Key, nestedProp.Value?.DeepClone());
-            }
+            FlattenJson(property.Value, fields);
         }
         else
         {
-            flattenedObject.Add(property.Key, property.Value?.DeepClone());
+            fields.Add(new KeyValuePair<string, string>(property.Name, property.Value.ToString()));
         }
     }
-
-    jsonObjects.Add(flattenedObject);
 }
-
-var b = 20;
