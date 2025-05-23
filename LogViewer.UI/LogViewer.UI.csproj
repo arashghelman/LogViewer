@@ -20,4 +20,9 @@
         </PackageReference>
         <PackageReference Include="FluentIcons.Avalonia" Version="1.1.301-ci" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LogViewer.Configuration\LogViewer.Configuration.csproj" />
+      <ProjectReference Include="..\LogViewer.Core\LogViewer.Core.csproj" />
+    </ItemGroup>
 </Project>

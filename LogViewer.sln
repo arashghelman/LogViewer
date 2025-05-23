@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Core", "LogViewer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.UI", "LogViewer.UI\LogViewer.UI.csproj", "{DF8DF926-78A6-407B-983D-F0FA43972C38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Configuration", "LogViewer.Configuration\LogViewer.Configuration.csproj", "{A76FB284-6145-4AB6-A3B5-3914D5E0BB16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{DF8DF926-78A6-407B-983D-F0FA43972C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF8DF926-78A6-407B-983D-F0FA43972C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF8DF926-78A6-407B-983D-F0FA43972C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A76FB284-6145-4AB6-A3B5-3914D5E0BB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76FB284-6145-4AB6-A3B5-3914D5E0BB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76FB284-6145-4AB6-A3B5-3914D5E0BB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76FB284-6145-4AB6-A3B5-3914D5E0BB16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

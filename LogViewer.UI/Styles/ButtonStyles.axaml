@@ -1,6 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="Button.Primary">
-        <Setter Property="Background" Value="#0061FF"/>
+        <Setter Property="Background" Value="#0061ff"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="Padding" Value="16,8"/>
@@ -8,11 +8,8 @@
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
     
-    <Style Selector="Button.Primary:pointerover">
-        <Setter Property="Background" Value="#004FCC"/>
-    </Style>
-    
-    <Style Selector="Button.Primary:pressed">
-        <Setter Property="Background" Value="#004FCC"/>
+    <Style Selector="Button.Primary:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="rgba(0, 97, 255, 0.9)"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
 </Styles>
