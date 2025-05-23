@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="LogViewer.UI/App.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
+        <entry key="LogViewer.UI/MainWindow.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
+        <entry key="LogViewer.UI/Styles/ButtonStyles.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
