@@ -5,7 +5,11 @@
       <map>
         <entry key="LogViewer.UI/App.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
         <entry key="LogViewer.UI/MainWindow.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
+        <entry key="LogViewer.UI/Styles.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
         <entry key="LogViewer.UI/Styles/ButtonStyles.axaml" value="LogViewer.UI/LogViewer.UI.csproj" />
+        <entry key="LogViewer.View/App.axaml" value="LogViewer.View/LogViewer.View.csproj" />
+        <entry key="LogViewer.View/MainWindow.axaml" value="LogViewer.View/LogViewer.View.csproj" />
+        <entry key="LogViewer.View/Styles.axaml" value="LogViewer.View/LogViewer.View.csproj" />
       </map>
     </option>
   </component>

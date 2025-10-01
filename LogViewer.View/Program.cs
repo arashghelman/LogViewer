@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace LogViewer.UI;
+namespace LogViewer.View;
 
 class Program
 {

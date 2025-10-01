@@ -1,0 +1,165 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:viewModels="clr-namespace:LogViewer.ViewModel.Abstractions;assembly=LogViewer.ViewModel"
+        x:DataType="viewModels:IMainViewModel"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LogViewer.View.MainWindow"
+        Title="LogViewer"
+        FontSize="14"
+        Padding="32"
+        Background="#f1f5f9"
+        Foreground="#475569">
+    <Grid RowDefinitions="50,*">
+        <TextBlock Text="Log Viewer"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#2563eb"
+                   Grid.Row="0" />
+        <Grid ColumnDefinitions="300,*"
+              Grid.Row="1">
+            <StackPanel Grid.Column="0"
+                        Margin="0,0,24,0"
+                        IsVisible="{Binding !IsFileLoaded}">
+                <TextBlock Text="Recent Files"
+                           FontWeight="Bold"
+                           Margin="0,0,0,12" />
+                <ListBox ItemsSource="{Binding RecentFiles}"
+                         Background="Transparent"
+                         Foreground="#475569">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="Auto,*">
+                                <materialIcons:MaterialIcon
+                                    Grid.Column="0"
+                                    Kind="FolderOpen"
+                                    FontSize="20"
+                                    Width="20"
+                                    Height="20"
+                                    Foreground="#475569"
+                                    Margin="0,0,8,14" />
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="{Binding FileName}"
+                                               Margin="0,0,0,4" />
+                                    <TextBlock Text="{Binding Path}"
+                                               FontSize="12"
+                                               Foreground="#64748b" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.Styles>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Padding" Value="12" />
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </ListBox.Styles>
+                </ListBox>
+            </StackPanel>
+            <Grid Grid.Column="1"
+                  DragDrop.AllowDrop="True"
+                  IsVisible="{Binding !IsFileLoaded}">
+                <Rectangle StrokeThickness="2"
+                           Stroke="#cbd5e1"
+                           StrokeDashArray="4,2"
+                           RadiusX="5"
+                           RadiusY="5"
+                           Fill="Transparent"
+                           x:Name="DropZoneBorder"/>
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Spacing="16"
+                            Classes="UploadZone"
+                            x:Name="DropZone">
+                    <materialIcons:MaterialIcon
+                        Kind="FileUploadOutline"
+                        FontSize="48"
+                        Width="48"
+                        Height="48"
+                        Foreground="#475569"
+                        x:Name="UploadFileIcon" />
+                    <TextBlock Text="Drag your log file here to start uploading."
+                               TextAlignment="Center"
+                               x:Name="DragFileText" />
+                    <TextBlock Text="OR"
+                               TextAlignment="Center"
+                               x:Name="OrText" />
+                    <Button Content="Browse files"
+                            HorizontalAlignment="Center"
+                            Classes="Primary"
+                            Margin="0,0,0,20"
+                            x:Name="BrowseButton"
+                            Click="BrowseButton_OnClick" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid ColumnDefinitions="*"
+              RowDefinitions="Auto,*"
+              Grid.Row="1"
+              IsVisible="{Binding IsFileLoaded}">
+            <TabStrip Grid.Row="0"
+                      BorderThickness="0,0,0,2"
+                      BorderBrush="#cbd5e1">
+                <TabStripItem FontSize="14"
+                              FontWeight="SemiBold"
+                              Foreground="#64748b"
+                              Background="White"
+                              Padding="12">
+                    log2025.log
+                </TabStripItem>
+            </TabStrip>
+            <DataGrid x:Name="LogsGrid"
+                      AutoGenerateColumns="False"
+                      GridLinesVisibility="None"
+                      Grid.ColumnSpan="2"
+                      Grid.Row="1">
+                <DataGrid.Styles>
+                    <Style Selector="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="FontWeight" Value="SemiBold" />
+                        <Setter Property="Foreground" Value="#64748b" />
+                        <Setter Property="SeparatorBrush" Value="Transparent" />
+                    </Style>
+                </DataGrid.Styles>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
+
+
+<!-- <Grid ColumnDefinitions="Auto,*,Auto,Auto"> -->
+<!--         <materialIcons:MaterialIcon -->
+<!--             Kind="File" -->
+<!--             FontSize="16" -->
+<!--             Width="16" -->
+<!--             Height="16" -->
+<!--             Foreground="#475569" -->
+<!--             Margin="0,0,8,0"/> -->
+<!--         <TextBlock Text="{Binding FileName}" -->
+<!--                    VerticalAlignment="Center" -->
+<!--                    Grid.Column="1"/> -->
+<!--         <TextBlock Text="{Binding FileSize}" -->
+<!--                    VerticalAlignment="Center" -->
+<!--                    Grid.Column="2" -->
+<!--                    Margin="0,0,8,0" -->
+<!--                    FontSize="12" -->
+<!--                    Foreground="#64748b"/> -->
+<!--         <Button Grid.Column="3" -->
+<!--                 Width="24" -->
+<!--                 Height="24" -->
+<!--                 Padding="0" -->
+<!--                 Background="Transparent" -->
+<!--                 HorizontalAlignment="Center" -->
+<!--                 VerticalAlignment="Center"> -->
+<!--             <materialIcons:MaterialIcon -->
+<!--                 Kind="MoreVert" -->
+<!--                 FontSize="16" -->
+<!--                 Width="16" -->
+<!--                 Height="16" -->
+<!--                 Foreground="#475569"/> -->
+<!--         </Button> -->
+<!-- </Grid> -->

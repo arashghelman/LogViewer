@@ -12,4 +12,8 @@
         <Setter Property="Background" Value="rgba(0, 97, 255, 0.9)"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
+    
+    <Style Selector="StackPanel.UploadZone TextBlock">
+        <Setter Property="Foreground" Value="#475569"/>
+    </Style>
 </Styles>

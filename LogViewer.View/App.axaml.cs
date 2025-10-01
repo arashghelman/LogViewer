@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 using LogViewer.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LogViewer.UI;
+namespace LogViewer.View;
 
 public partial class App : Application
 {
@@ -17,6 +17,7 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
         services.AddCoreServices();
+        services.AddViewModels();
         services.AddSingleton<MainWindow>();
         
         var serviceProvider = services.BuildServiceProvider();

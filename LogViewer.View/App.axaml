@@ -1,11 +1,14 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="LogViewer.UI.App"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="LogViewer.View.App"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="avares://LogViewer.UI/Styles/ButtonStyles.axaml"/>
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+        <materialIcons:MaterialIconStyles />
+        <StyleInclude Source="avares://LogViewer.View/Styles.axaml"/>
     </Application.Styles>
 </Application>
