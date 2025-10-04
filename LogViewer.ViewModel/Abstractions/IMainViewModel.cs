@@ -11,4 +11,6 @@ public interface IMainViewModel
     public bool IsFileLoaded { get; }
     
     Task<ParseResultDto> ParseLogFile(string filePath);
+    
+    void UnloadLogFile();
 }

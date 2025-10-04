@@ -100,7 +100,7 @@ public partial class MainWindow : Window
             
             LogsGrid.Columns.Add(column);
         }
-
+    
         LogsGrid.ItemsSource = parseResult.LogEntries;
     }
 }

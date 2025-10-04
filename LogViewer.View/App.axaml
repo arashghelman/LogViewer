@@ -3,7 +3,7 @@
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="LogViewer.View.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
         <FluentTheme />
@@ -11,4 +11,12 @@
         <materialIcons:MaterialIconStyles />
         <StyleInclude Source="avares://LogViewer.View/Styles.axaml"/>
     </Application.Styles>
+             
+    <Application.Resources>
+        <Color x:Key="Slate100">#f1f5f9</Color>
+        <Color x:Key="Slate300">#cbd5e1</Color>
+        <Color x:Key="Slate500">#64748b</Color>
+        <Color x:Key="Slate600">#475569</Color>
+        <Color x:Key="Blue600">#2563eb</Color>
+    </Application.Resources>
 </Application>

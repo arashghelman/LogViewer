@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LogViewer.Model.Abstractions;
 using LogViewer.ViewModel.Abstractions;
 using LogViewer.ViewModel.Types;
@@ -9,7 +10,7 @@ namespace LogViewer.ViewModel.ViewModels;
 public class MainViewModel : ObservableObject, IMainViewModel
 {
     private readonly ILogParser _logParser;
-
+    
     public ObservableCollection<RecentFileInfoDto> RecentFiles { get; set; }
     
     private bool _isFileLoaded;
@@ -48,5 +49,10 @@ public class MainViewModel : ObservableObject, IMainViewModel
         IsFileLoaded = true;
         
         return resultDto;
+    }
+
+    public void UnloadLogFile()
+    {
+        IsFileLoaded = false;
     }
 }
